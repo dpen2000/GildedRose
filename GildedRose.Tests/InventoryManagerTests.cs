@@ -32,7 +32,10 @@ namespace GildedRose.Tests
 
             internal void PerformDailyUpdate()
             {
-                Quality--;
+                if (Quality != 0)
+                {
+                    Quality--;
+                }
             }
         }
     }
