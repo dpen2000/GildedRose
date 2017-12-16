@@ -26,9 +26,18 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(0);
         }
 
+        [Fact]
+        public void SellInDecreasesEveryDay()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 1 };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.SellIn.ShouldBe(0);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
+            public int SellIn { get; set; }
 
             internal void PerformDailyUpdate()
             {
