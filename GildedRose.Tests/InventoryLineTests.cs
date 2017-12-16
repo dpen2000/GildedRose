@@ -49,10 +49,9 @@ namespace GildedRose.Tests
 
             internal void PerformDailyUpdate()
             {
-                SellIn--;
                 if (Quality != 0)
                 {
-                    if (SellIn < 0)
+                    if (SellIn <= 0)
                     {
                         Quality = Quality - 2;
                     }
@@ -61,6 +60,7 @@ namespace GildedRose.Tests
                         Quality--;
                     }
                 }
+                SellIn--;
             }
         }
     }
