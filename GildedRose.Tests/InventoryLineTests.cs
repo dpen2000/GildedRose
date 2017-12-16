@@ -42,10 +42,19 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(48);
         }
 
+        [Fact]
+        public void AgedBrieIncreasesInQualityAsItGetsOlder()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 0, ItemName = "Aged Brie" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(1);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
             public int SellIn { get; set; }
+            public string ItemName { get; set; }
 
             internal void PerformDailyUpdate()
             {
