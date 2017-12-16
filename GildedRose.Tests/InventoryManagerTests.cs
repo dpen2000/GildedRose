@@ -11,7 +11,7 @@ namespace GildedRose.Tests
     public class InventoryManagerTests
     {
         [Fact]
-        public void QualityDegratesEveryDay()
+        public void QualityDegratesByOneEveryDay()
         {
             var inventoryLine = new InventoryLine() { Quality = 1 };
             inventoryLine.PerformDailyUpdate();
