@@ -51,7 +51,7 @@ namespace GildedRose.Tests
 
             internal void PerformDailyUpdate()
             {
-                throw new NotImplementedException();
+                Quality--;
             }
         }
 
