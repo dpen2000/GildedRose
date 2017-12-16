@@ -52,7 +52,14 @@ namespace GildedRose.Tests
                 SellIn--;
                 if (Quality != 0)
                 {
-                    Quality--;
+                    if (SellIn < 0)
+                    {
+                        Quality = Quality - 2;
+                    }
+                    else
+                    {
+                        Quality--;
+                    }
                 }
             }
         }
