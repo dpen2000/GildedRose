@@ -34,6 +34,14 @@ namespace GildedRose.Tests
             inventoryLine.SellIn.ShouldBe(0);
         }
 
+        [Fact]
+        public void OnceSellInDateHasPassedQualityDegratesTwiceAsFast()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 50 };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(48);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
