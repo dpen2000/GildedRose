@@ -19,7 +19,28 @@ namespace GildedRose.Tests
 
         private string UpdateItem(string input)
         {
-            return "Aged Brie 0 2";
+            var inventoryLine = ParseInventoryLine(input);
+            inventoryLine.Quality++;
+            inventoryLine.SellIn--;
+            return $"{inventoryLine.ProductName} {inventoryLine.SellIn} {inventoryLine.Quality}";
         }
+
+        private InventoryLine ParseInventoryLine(string input)
+        {
+            var inventoryLine = new InventoryLine();
+            var inputSplitReversed = input.Split(' ').Reverse();
+            inventoryLine.ProductName = string.Join(" ", inputSplitReversed.Skip(2).Reverse().ToArray());
+            inventoryLine.SellIn = int.Parse(inputSplitReversed.ElementAt(1));
+            inventoryLine.Quality = int.Parse(inputSplitReversed.ElementAt(0));
+            return inventoryLine;
+        }
+
+        public class InventoryLine
+        {
+            public string ProductName { get; set; }
+            public int SellIn { get; set; }
+            public int Quality { get; set; }
+        }
+
     }
 }
