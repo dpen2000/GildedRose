@@ -8,7 +8,7 @@ using Xunit;
 
 namespace GildedRose.Tests
 {
-    public class InventoryManagerTests
+    public class InventoryLineTests
     {
         [Fact]
         public void QualityDegratesByOneEveryDay()
