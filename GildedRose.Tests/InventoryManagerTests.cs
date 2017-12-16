@@ -18,6 +18,14 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(0);
         }
 
+        [Fact]
+        public void QualityOfItemNeverNegative()
+        {
+            var inventoryLine = new InventoryLine() { Quality = 0 };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(0);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
