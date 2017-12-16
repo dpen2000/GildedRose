@@ -13,7 +13,7 @@ namespace GildedRose.Tests
         [Fact]
         public void QualityDegratesByOneEveryDay()
         {
-            var inventoryLine = new InventoryLine() { Quality = 1 };
+            var inventoryLine = new InventoryLine() { Quality = 1, SellIn = 1 };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(0);
         }
