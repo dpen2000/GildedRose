@@ -17,6 +17,14 @@ namespace GildedRose.Tests
             UpdateItem(input).ShouldBe(output);
         }
 
+        [Fact]
+        public void QualityDegratesEveryDay()
+        {
+            var inventoryLine = new InventoryLine() { Quality = 1 };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(0);
+        }
+
         private string UpdateItem(string input)
         {
             var inventoryLine = ParseInventoryLine(input);
@@ -40,6 +48,11 @@ namespace GildedRose.Tests
             public string ProductName { get; set; }
             public int SellIn { get; set; }
             public int Quality { get; set; }
+
+            internal void PerformDailyUpdate()
+            {
+                throw new NotImplementedException();
+            }
         }
 
     }
