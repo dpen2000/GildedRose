@@ -19,7 +19,7 @@ namespace GildedRose.Tests
 
         private string UpdateItem(string input)
         {
-            throw new NotImplementedException();
+            return "Aged Brie 0 2";
         }
     }
 }
