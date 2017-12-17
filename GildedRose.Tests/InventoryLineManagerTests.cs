@@ -9,10 +9,10 @@ using Xunit;
 
 namespace GildedRose.Tests
 {
-    public class InventoryLineTests
+    public class InventoryLineManagerTests
     {
         private readonly InventoryLineManager _inventoryLineManager;
-        public InventoryLineTests()
+        public InventoryLineManagerTests()
         {
             _inventoryLineManager = InventoryLineManagerFactory.GetWithUpdatersConfigured();
         }
