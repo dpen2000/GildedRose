@@ -22,26 +22,6 @@ namespace GildedRose.Tests
                 EnsureQualityLimits(inventoryLine);
                 return;
             }
-
-            if (inventoryLine.ItemName == "Backstage passes")
-            {
-                if (inventoryLine.SellIn < 0)
-                {
-                    inventoryLine.Quality = 0;
-                }
-                else if (inventoryLine.SellIn <= 5)
-                {
-                    inventoryLine.Quality = inventoryLine.Quality + 3;
-                }
-                else if (inventoryLine.SellIn <= 10)
-                {
-                    inventoryLine.Quality = inventoryLine.Quality + 2;
-                }
-            }
-
-            inventoryLine.SellIn--;
-
-            EnsureQualityLimits(inventoryLine);
         }
 
         private static void EnsureQualityLimits(InventoryLine inventoryLine)

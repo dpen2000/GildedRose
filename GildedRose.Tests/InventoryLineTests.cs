@@ -26,7 +26,8 @@ namespace GildedRose.Tests
                 afterSellInQualityAdjustment: -4) },
                 {"Sulfuras", new GenericInventoryLineUpdater(sellInAdjustment:0,
                 beforeSellInQualityAdjustment: 0,
-                afterSellInQualityAdjustment: 0) }
+                afterSellInQualityAdjustment: 0) },
+                {"Backstage passes", new BackstagePassInventoryLineUpdater() }
             });
         }
         [Fact]
