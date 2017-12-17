@@ -31,10 +31,14 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(0);
         }
 
-        [Fact]
-        public void SellInDecreasesEveryDay()
+        [Theory]
+        [InlineData("Normal Item")]
+        [InlineData("Aged Brie")]
+        [InlineData("Backstage passes")]
+        [InlineData("Conjured")]
+        public void SellInDecreasesEveryDay(string itemName)
         {
-            var inventoryLine = new InventoryLine() { SellIn = 1, ItemName = "Normal Item" };
+            var inventoryLine = new InventoryLine() { SellIn = 1, ItemName = itemName };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.SellIn.ShouldBe(0);
         }
