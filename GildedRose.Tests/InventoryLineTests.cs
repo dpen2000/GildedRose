@@ -23,10 +23,14 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(0);
         }
 
-        [Fact]
-        public void QualityOfItemNeverNegative()
+        [Theory]
+        [InlineData("Normal Item")]
+        [InlineData("Conjured")]
+        [InlineData("Sulfuras")]
+        [InlineData("Aged Brie")]
+        public void QualityOfItemNeverNegative(string itemName)
         {
-            var inventoryLine = new InventoryLine() { Quality = 0, ItemName = "Normal Item" };
+            var inventoryLine = new InventoryLine() { Quality = -10, ItemName = itemName };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(0);
         }

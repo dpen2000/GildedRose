@@ -12,7 +12,6 @@ namespace GildedRose.Tests
         {
             if (inventoryLine.ItemName != "Sulfuras")
             {
-                var previousQuality = inventoryLine.Quality;
                 if (inventoryLine.ItemName == "Aged Brie")
                 {
                     inventoryLine.Quality++;
@@ -55,12 +54,12 @@ namespace GildedRose.Tests
                     }
                 }
 
-                if (inventoryLine.Quality < 0)
-                {
-                    inventoryLine.Quality = previousQuality;
-                }
-
                 inventoryLine.SellIn--;
+            }
+
+            if (inventoryLine.Quality < 0)
+            {
+                inventoryLine.Quality = 0;
             }
 
             if (inventoryLine.Quality > 50)
