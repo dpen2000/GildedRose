@@ -6,10 +6,10 @@ namespace GildedRose.Console
 {
     public class InventoryLineRunner
     {
-        public string UpdateAllLines(string testInput)
+        public string UpdateAllLines(string input)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            var lines = testInput.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             var parsedInventoryLines = lines.Select(ParseInventoryLine).ToList();
             var inventoryLineManager = InventoryLineManagerFactory.GetWithUpdatersConfigured();
             foreach (var parsedInventoryLine in parsedInventoryLines)
