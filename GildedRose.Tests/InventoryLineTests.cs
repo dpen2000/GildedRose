@@ -58,6 +58,15 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(50);
         }
 
+        [Fact]
+        public void SulfurasDoesNotAgeOrDecreaseQuality()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 2, Quality = 2, ItemName = "Sulfuras" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(2);
+            inventoryLine.SellIn.ShouldBe(2);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
