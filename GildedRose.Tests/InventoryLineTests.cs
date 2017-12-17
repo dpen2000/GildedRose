@@ -13,22 +13,7 @@ namespace GildedRose.Tests
         private readonly InventoryLineManager _inventoryLineManager;
         public InventoryLineTests()
         {
-            _inventoryLineManager = new InventoryLineManager(new Dictionary<string, IInventoryLineUpdater>
-            {
-                {"Normal Item", new GenericInventoryLineUpdater(sellInAdjustment:-1,
-                beforeSellInQualityAdjustment: -1,
-                afterSellInQualityAdjustment: -2) },
-                {"Aged Brie", new GenericInventoryLineUpdater(sellInAdjustment:-1,
-                beforeSellInQualityAdjustment: 1,
-                afterSellInQualityAdjustment: 1) },
-                {"Conjured", new GenericInventoryLineUpdater(sellInAdjustment:-1,
-                beforeSellInQualityAdjustment: -2,
-                afterSellInQualityAdjustment: -4) },
-                {"Sulfuras", new GenericInventoryLineUpdater(sellInAdjustment:0,
-                beforeSellInQualityAdjustment: 0,
-                afterSellInQualityAdjustment: 0) },
-                {"Backstage passes", new BackstagePassInventoryLineUpdater() }
-            });
+            _inventoryLineManager = InventoryLineManagerFactory.GetWithUpdatersConfigured();
         }
         [Fact]
         public void QualityDegratesByOneEveryDay()

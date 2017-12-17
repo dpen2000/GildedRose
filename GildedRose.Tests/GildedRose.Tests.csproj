@@ -64,6 +64,7 @@
     <Compile Include="IInventoryLineUpdater.cs" />
     <Compile Include="InventoryLine.cs" />
     <Compile Include="InventoryLineManager.cs" />
+    <Compile Include="InventoryLineManagerFactory.cs" />
     <Compile Include="InventoryLineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
