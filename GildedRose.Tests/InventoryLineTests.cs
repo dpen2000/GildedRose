@@ -50,6 +50,14 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(1);
         }
 
+        [Fact]
+        public void QualityOfItemCannotExceed50()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 50, ItemName = "Aged Brie" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(50);
+        }
+
         public class InventoryLine
         {
             public int Quality { get; set; }
