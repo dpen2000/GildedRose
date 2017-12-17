@@ -18,7 +18,7 @@ namespace GildedRose.Tests
         [Fact]
         public void QualityDegratesByOneEveryDay()
         {
-            var inventoryLine = new InventoryLine() { Quality = 1, SellIn = 1 };
+            var inventoryLine = new InventoryLine() { Quality = 1, SellIn = 1, ItemName = "Normal Item" };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(0);
         }
@@ -26,7 +26,7 @@ namespace GildedRose.Tests
         [Fact]
         public void QualityOfItemNeverNegative()
         {
-            var inventoryLine = new InventoryLine() { Quality = 0 };
+            var inventoryLine = new InventoryLine() { Quality = 0, ItemName = "Normal Item" };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(0);
         }
@@ -34,7 +34,7 @@ namespace GildedRose.Tests
         [Fact]
         public void SellInDecreasesEveryDay()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 1 };
+            var inventoryLine = new InventoryLine() { SellIn = 1, ItemName = "Normal Item" };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.SellIn.ShouldBe(0);
         }
@@ -42,7 +42,7 @@ namespace GildedRose.Tests
         [Fact]
         public void OnceSellInDateHasPassedQualityDegratesTwiceAsFast()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 50 };
+            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 50, ItemName = "Normal Item" };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(48);
         }
