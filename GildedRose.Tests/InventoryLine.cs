@@ -17,7 +17,11 @@
             }
             else if (ItemName == "Backstage Passes")
             {
-                if (SellIn <= 5)
+                if (SellIn < 0)
+                {
+                    Quality = 0;
+                }
+                else if (SellIn <= 5)
                 {
                     Quality = Quality + 3;
                 }
