@@ -15,7 +15,9 @@ namespace GildedRose.Tests
         {
             _inventoryLineManager = new InventoryLineManager(new Dictionary<string, IInventoryLineUpdater>
             {
-                {"Normal Item", new GenericInventoryLineUpdater() }
+                {"Normal Item", new GenericInventoryLineUpdater(sellInAdjustment:-1, 
+                beforeSellInQualityAdjustment: -1, 
+                afterSellInQualityAdjustment: -2) }
             });
         }
         [Fact]
