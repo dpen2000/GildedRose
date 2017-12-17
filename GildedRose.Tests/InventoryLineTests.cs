@@ -58,17 +58,25 @@ namespace GildedRose.Tests
 
             internal void PerformDailyUpdate()
             {
-                if (Quality != 0)
+                var previousQuality = Quality;
+                if (ItemName == "Aged Brie")
                 {
-                    if (SellIn <= 0)
-                    {
-                        Quality = Quality - 2;
-                    }
-                    else
-                    {
-                        Quality--;
-                    }
+                    Quality++;
                 }
+                else if (SellIn <= 0)
+                {
+                    Quality = Quality - 2;
+                }
+                else
+                {
+                    Quality--;
+                }
+
+                if (Quality < 0)
+                {
+                    Quality = previousQuality;
+                }
+
                 SellIn--;
             }
         }
