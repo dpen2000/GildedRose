@@ -32,11 +32,25 @@
             }
             else if (SellIn <= 0)
             {
-                Quality = Quality - 2;
+                if (ItemName == "Conjured")
+                {
+                    Quality = Quality - 4;
+                }
+                else
+                {
+                    Quality = Quality - 2;
+                }
             }
             else
             {
-                Quality--;
+                if (ItemName == "Conjured")
+                {
+                    Quality = Quality - 2;
+                }
+                else
+                {
+                    Quality--;
+                }
             }
 
             if (Quality < 0)
