@@ -8,8 +8,20 @@ namespace GildedRose.Tests
 {
     public class InventoryLineManager
     {
+        private Dictionary<string, IInventoryLineUpdater> _itemNameToUpdatorDictionary;
+        public InventoryLineManager(Dictionary<string, IInventoryLineUpdater> itemNameToUpdatorDictionary)
+        {
+            _itemNameToUpdatorDictionary = itemNameToUpdatorDictionary;
+        }
+
         public void PerformDailyUpdate(InventoryLine inventoryLine)
         {
+            if (_itemNameToUpdatorDictionary.ContainsKey(inventoryLine.ItemName))
+            {
+                _itemNameToUpdatorDictionary[inventoryLine.ItemName].UpdateInventoryLine(inventoryLine);
+                EnsureQualityLimits(inventoryLine);
+                return;
+            }
             if (inventoryLine.ItemName != "Sulfuras")
             {
                 if (inventoryLine.ItemName == "Aged Brie")
@@ -37,10 +49,6 @@ namespace GildedRose.Tests
                     {
                         inventoryLine.Quality = inventoryLine.Quality - 4;
                     }
-                    else
-                    {
-                        inventoryLine.Quality = inventoryLine.Quality - 2;
-                    }
                 }
                 else
                 {
@@ -48,15 +56,16 @@ namespace GildedRose.Tests
                     {
                         inventoryLine.Quality = inventoryLine.Quality - 2;
                     }
-                    else
-                    {
-                        inventoryLine.Quality--;
-                    }
                 }
 
                 inventoryLine.SellIn--;
             }
 
+            EnsureQualityLimits(inventoryLine);
+        }
+
+        private static void EnsureQualityLimits(InventoryLine inventoryLine)
+        {
             if (inventoryLine.Quality < 0)
             {
                 inventoryLine.Quality = 0;

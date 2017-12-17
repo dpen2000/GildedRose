@@ -13,7 +13,10 @@ namespace GildedRose.Tests
         private readonly InventoryLineManager _inventoryLineManager;
         public InventoryLineTests()
         {
-            _inventoryLineManager = new InventoryLineManager();
+            _inventoryLineManager = new InventoryLineManager(new Dictionary<string, IInventoryLineUpdater>
+            {
+                {"Normal Item", new GenericInventoryLineUpdater() }
+            });
         }
         [Fact]
         public void QualityDegratesByOneEveryDay()

@@ -59,6 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericInventoryLineUpdater.cs" />
+    <Compile Include="IInventoryLineUpdater.cs" />
     <Compile Include="InventoryLine.cs" />
     <Compile Include="InventoryLineManager.cs" />
     <Compile Include="InventoryLineTests.cs" />
