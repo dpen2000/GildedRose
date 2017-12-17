@@ -85,6 +85,11 @@ namespace GildedRose.Tests
                     Quality = previousQuality;
                 }
 
+                if (Quality > 50)
+                {
+                    Quality = 50;
+                }
+
                 SellIn--;
             }
         }
