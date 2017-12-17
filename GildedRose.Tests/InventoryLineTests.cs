@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using GildedRose.Console;
+using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;

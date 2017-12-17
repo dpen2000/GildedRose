@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GildedRose.Tests
+namespace GildedRose.Console
 {
-    public interface IInventoryLineUpdater
+    class Program
     {
-        void UpdateInventoryLine(InventoryLine inventoryLine);
+        static void Main(string[] args)
+        {
+        }
     }
 }

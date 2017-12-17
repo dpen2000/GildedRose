@@ -1,4 +1,4 @@
-﻿namespace GildedRose.Tests
+﻿namespace GildedRose.Console
 {
     public class InventoryLine
     {
