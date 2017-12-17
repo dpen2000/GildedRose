@@ -82,5 +82,21 @@ namespace GildedRose.Tests
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(4);
         }
+
+        [Fact]
+        public void BackstagePasses_QualityIncreasesBy3_When5DaysInSellInValue()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 5, Quality = 2, ItemName = "Backstage Passes" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(5);
+        }
+
+        [Fact]
+        public void BackstagePasses_QualityIncreasesBy2_When4DaysInSellInValue()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 4, Quality = 2, ItemName = "Backstage Passes" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(5);
+        }
     }
 }
