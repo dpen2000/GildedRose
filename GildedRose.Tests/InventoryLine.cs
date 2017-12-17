@@ -15,7 +15,7 @@
             {
                 Quality++;
             }
-            else if (ItemName == "Backstage Passes")
+            else if (ItemName == "Backstage passes")
             {
                 if (SellIn < 0)
                 {

@@ -70,7 +70,7 @@ namespace GildedRose.Tests
         [Fact]
         public void BackstagePasses_QualityIncreasesBy2_When10DaysInSellInValue()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 10, Quality = 2, ItemName = "Backstage Passes" };
+            var inventoryLine = new InventoryLine() { SellIn = 10, Quality = 2, ItemName = "Backstage passes" };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(4);
         }
@@ -78,7 +78,7 @@ namespace GildedRose.Tests
         [Fact]
         public void BackstagePasses_QualityIncreasesBy2_When9DaysInSellInValue()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 9, Quality = 2, ItemName = "Backstage Passes" };
+            var inventoryLine = new InventoryLine() { SellIn = 9, Quality = 2, ItemName = "Backstage passes" };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(4);
         }
@@ -86,7 +86,7 @@ namespace GildedRose.Tests
         [Fact]
         public void BackstagePasses_QualityIncreasesBy3_When5DaysInSellInValue()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 5, Quality = 2, ItemName = "Backstage Passes" };
+            var inventoryLine = new InventoryLine() { SellIn = 5, Quality = 2, ItemName = "Backstage passes" };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(5);
         }
@@ -94,7 +94,7 @@ namespace GildedRose.Tests
         [Fact]
         public void BackstagePasses_QualityIncreasesBy2_When4DaysInSellInValue()
         {
-            var inventoryLine = new InventoryLine() { SellIn = 4, Quality = 2, ItemName = "Backstage Passes" };
+            var inventoryLine = new InventoryLine() { SellIn = 4, Quality = 2, ItemName = "Backstage passes" };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(5);
         }
@@ -102,7 +102,7 @@ namespace GildedRose.Tests
         [Fact]
         public void QualityDropsToZeroAfterConcertForBackstagePasses()
         {
-            var inventoryLine = new InventoryLine() { SellIn = -1, Quality = 2, ItemName = "Backstage Passes" };
+            var inventoryLine = new InventoryLine() { SellIn = -1, Quality = 2, ItemName = "Backstage passes" };
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(0);
         }
