@@ -75,6 +75,8 @@ namespace GildedRose.Tests
 
             internal void PerformDailyUpdate()
             {
+                if (ItemName == "Sulfuras") return;
+
                 var previousQuality = Quality;
                 if (ItemName == "Aged Brie")
                 {
