@@ -46,6 +46,7 @@
     <Compile Include="InventoryLine.cs" />
     <Compile Include="InventoryLineManager.cs" />
     <Compile Include="InventoryLineManagerFactory.cs" />
+    <Compile Include="InventoryLineRunner.cs" />
     <Compile Include="InventoryLineUpdaters\BackstagePassInventoryLineUpdater.cs" />
     <Compile Include="InventoryLineUpdaters\GenericInventoryLineUpdater.cs" />
     <Compile Include="Program.cs" />
