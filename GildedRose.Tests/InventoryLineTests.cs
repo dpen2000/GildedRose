@@ -59,10 +59,15 @@ namespace GildedRose.Tests
             inventoryLine.Quality.ShouldBe(1);
         }
 
-        [Fact]
-        public void QualityOfItemCannotExceed50()
+        [Theory]
+        [InlineData("Aged Brie")]
+        [InlineData("Normal Item")]
+        [InlineData("Backstage passes")]
+        [InlineData("Conjured")]
+        [InlineData("Sulfuras")]
+        public void QualityOfItemCannotExceed50(string itemName)
         {
-            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 50, ItemName = "Aged Brie" };
+            var inventoryLine = new InventoryLine() { SellIn = 0, Quality = 55, ItemName = itemName };
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(50);
         }
