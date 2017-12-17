@@ -98,5 +98,13 @@ namespace GildedRose.Tests
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(5);
         }
+
+        [Fact]
+        public void QualityDropsToZeroAfterConcertForBackstagePasses()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = -1, Quality = 2, ItemName = "Backstage Passes" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(0);
+        }
     }
 }
