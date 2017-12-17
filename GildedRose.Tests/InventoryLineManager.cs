@@ -22,6 +22,9 @@ namespace GildedRose.Tests
                 EnsureQualityLimits(inventoryLine);
                 return;
             }
+            else {
+                inventoryLine.NoSuchItem = true;
+            }
         }
 
         private static void EnsureQualityLimits(InventoryLine inventoryLine)

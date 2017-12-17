@@ -140,5 +140,13 @@ namespace GildedRose.Tests
             _inventoryLineManager.PerformDailyUpdate(inventoryLine);
             inventoryLine.Quality.ShouldBe(1);
         }
+
+        [Fact]
+        public void InvalidItem_ShouldGetMarkedAsNoSuchItem()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 2, Quality = 2, ItemName = "INVALID ITEM" };
+            _inventoryLineManager.PerformDailyUpdate(inventoryLine);
+            inventoryLine.NoSuchItem.ShouldBe(true);
+        }
     }
 }
