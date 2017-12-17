@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventoryLine.cs" />
+    <Compile Include="InventoryLineManager.cs" />
     <Compile Include="InventoryLineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
