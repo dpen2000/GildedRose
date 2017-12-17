@@ -106,5 +106,21 @@ namespace GildedRose.Tests
             inventoryLine.PerformDailyUpdate();
             inventoryLine.Quality.ShouldBe(0);
         }
+
+        [Fact]
+        public void ConjuredItemsDegradeInQualityTwiceAsFastAsNormalItems_BeforeSellIn()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = 2, Quality = 2, ItemName = "Conjured" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(0);
+        }
+
+        [Fact]
+        public void ConjuredItemsDegradeInQualityTwiceAsFastAsNormalItems_AfterSellIn()
+        {
+            var inventoryLine = new InventoryLine() { SellIn = -1, Quality = 5, ItemName = "Conjured" };
+            inventoryLine.PerformDailyUpdate();
+            inventoryLine.Quality.ShouldBe(1);
+        }
     }
 }
